@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:journal_clean_architecture/domain/entities/journal_entry.dart';
-import 'package:journal_clean_architecture/domain/services/journal_service.dart';
 import 'package:journal_clean_architecture/domain/services/validation_service.dart';
+import 'package:journal_clean_architecture/ui/journal_controller.dart';
 
 class AddEntryView extends StatefulWidget {
   final ValidationService validationService;
-  final JournalService journalService;
+  final JournalController journalController;
   final VoidCallback onEntryAdded;
 
   const AddEntryView({
     Key key,
     @required this.validationService,
-    @required this.journalService,
+    @required this.journalController,
     @required this.onEntryAdded,
   }) : super(key: key);
 
@@ -78,7 +78,7 @@ class _AddEntryViewState extends State<AddEntryView> {
 
   void _submitForm() async {
     if (_formKey.currentState.validate()) {
-      await widget.journalService.addEntry(JournalEntry(
+      await widget.journalController.addEntry(JournalEntry(
         title: _titleController.text,
         date: DateTime.now(),
         body: _bodyController.text,

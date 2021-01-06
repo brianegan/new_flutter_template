@@ -1,49 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:journal_clean_architecture/domain/entities/journal_entry.dart';
-import 'package:journal_clean_architecture/domain/services/journal_service.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:journal_clean_architecture/ui/error_view.dart';
+import 'package:journal_clean_architecture/ui/journal_controller.dart';
 
-class JournalEntryView extends StatefulWidget {
+class JournalEntryView extends StatelessWidget {
   final String id;
-  final JournalService journalService;
+  final JournalController journalController;
 
   const JournalEntryView({
     Key key,
     @required this.id,
-    @required this.journalService,
+    @required this.journalController,
   }) : super(key: key);
-
-  @override
-  _JournalEntryViewState createState() => _JournalEntryViewState();
-}
-
-class _JournalEntryViewState extends State<JournalEntryView> {
-  Future<JournalEntry> _entry;
-
-  @override
-  void initState() {
-    _entry = widget.journalService.entry(widget.id);
-    super.initState();
-  }
-
-  @override
-  void didUpdateWidget(covariant JournalEntryView oldWidget) {
-    if (widget.id != oldWidget.id) {
-      _entry = widget.journalService.entry(widget.id);
-    }
-
-    super.didUpdateWidget(oldWidget);
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Journal Entry")),
-      body: FutureBuilder<JournalEntry>(
-        future: _entry,
-        builder: (context, snapshot) {
+      appBar: AppBar(title: Text(AppLocalizations.of(context).journalEntry)),
+      body: AnimatedBuilder(
+        animation: journalController,
+        builder: (context, _) {
+          final snapshot = journalController.entry(id);
+
           if (snapshot.hasData) {
             return ListView(
+              padding: EdgeInsets.all(16),
               children: [
                 Text(
                   snapshot.data.title,
@@ -54,12 +35,14 @@ class _JournalEntryViewState extends State<JournalEntryView> {
               ],
             );
           } else if (snapshot.hasError) {
-            return ErrorView(
-              message: "Oh no! There was an error loading the journal entry :(",
+            return Center(
+              child: ErrorView(
+                message: AppLocalizations.of(context).loadEntryError,
+              ),
             );
           }
 
-          return CircularProgressIndicator();
+          return Center(child: CircularProgressIndicator());
         },
       ),
     );

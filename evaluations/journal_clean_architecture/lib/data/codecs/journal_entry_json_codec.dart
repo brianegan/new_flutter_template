@@ -36,10 +36,10 @@ class _JournalEntryJsonEncoder extends Converter<JournalEntry, String> {
   @override
   String convert(JournalEntry input) {
     return json.encode({
-      "id": input.id,
-      "title": input.title,
-      "date": input.date.toIso8601String(),
-      "body": input.body,
+      'id': input.id,
+      'title': input.title,
+      'date': input.date.toIso8601String(),
+      'body': input.body,
     });
   }
 }

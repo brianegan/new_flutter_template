@@ -6,7 +6,11 @@ class UserSettingsService {
 
   UserSettingsService(this.repository);
 
-  Future<AppTheme> get currentTheme => repository.theme();
+  Future<AppTheme> get theme => repository.theme();
 
   Future<void> updateTheme(AppTheme theme) => repository.updateTheme(theme);
+
+  Future<String> get locale => repository.locale();
+
+  Future<void> updateLocale(String locale) => repository.updateLocale(locale);
 }

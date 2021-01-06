@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:journal_clean_architecture/domain/entities/app_theme.dart';
 
-class AppThemeJsonCodec extends Codec<AppTheme, String> {
-  const AppThemeJsonCodec();
+class AppThemeCodec extends Codec<AppTheme, String> {
+  const AppThemeCodec();
 
   @override
   Converter<String, AppTheme> get decoder => const _AppThemeJsonDecoder();
@@ -17,9 +17,13 @@ class _AppThemeJsonDecoder extends Converter<String, AppTheme> {
 
   @override
   AppTheme convert(String input) {
-    final theme = json.decode(input)["theme"];
-
-    return AppTheme.values.firstWhere((t) => t.toString() == theme);
+    switch (input) {
+      case _light:
+        return AppTheme.light;
+      case _dark:
+      default:
+        return AppTheme.dark;
+    }
   }
 }
 
@@ -28,8 +32,15 @@ class _AppThemeJsonEncoder extends Converter<AppTheme, String> {
 
   @override
   String convert(AppTheme input) {
-    return json.encode({
-      "theme": input.toString(),
-    });
+    switch (input) {
+      case AppTheme.light:
+        return _light;
+      case AppTheme.dark:
+      default:
+        return _dark;
+    }
   }
 }
+
+const _light = 'light';
+const _dark = 'dark';

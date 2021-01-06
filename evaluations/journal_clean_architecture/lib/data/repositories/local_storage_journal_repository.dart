@@ -25,12 +25,11 @@ class LocalStorageJournalRepository implements JournalRepository {
     final idsToLoad = ids != null && ids.isNotEmpty ? ids : _allEntries;
 
     return Future.wait([
-      for (final id in idsToLoad) entry(id),
+      for (final id in idsToLoad) _entry(id),
     ]);
   }
 
-  @override
-  Future<JournalEntry> entry(String id) async =>
+  Future<JournalEntry> _entry(String id) async =>
       codec.decode(preferences.getString(id));
 
   @override
@@ -41,10 +40,6 @@ class LocalStorageJournalRepository implements JournalRepository {
       _allEntries..remove(id),
     );
   }
-
-  @override
-  Future<void> updateEntry(JournalEntry entry) =>
-      preferences.setString(entry.id, codec.encode(entry));
 
   List<String> get _allEntries => preferences.getStringList(entryIdsKey) ?? [];
 }

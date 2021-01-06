@@ -13,23 +13,23 @@ class AppRouteConfiguration {
 }
 
 class HomeConfiguration extends AppRouteConfiguration {
-  HomeConfiguration() : super("/");
+  HomeConfiguration() : super('/');
 }
 
 class AddEntryConfiguration extends AppRouteConfiguration {
-  AddEntryConfiguration() : super("/entry/add");
+  AddEntryConfiguration() : super('/entry/add');
 }
 
 class JournalEntryConfiguration extends AppRouteConfiguration {
   final String id;
 
-  JournalEntryConfiguration(this.id) : super("/entry/$id");
+  JournalEntryConfiguration(this.id) : super('/entry/$id');
 }
 
 class UserSettingsConfiguration extends AppRouteConfiguration {
-  UserSettingsConfiguration() : super("/settings");
+  UserSettingsConfiguration() : super('/settings');
 }
 
 class UnknownConfiguration extends AppRouteConfiguration {
-  UnknownConfiguration() : super("/404");
+  UnknownConfiguration() : super('/404');
 }

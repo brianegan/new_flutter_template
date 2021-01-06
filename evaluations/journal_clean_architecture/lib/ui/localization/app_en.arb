@@ -2,5 +2,18 @@
   "appTitle": "My Journal",
   "entries": "Entries",
   "favorites": "Favorites",
-  "addJournalEntry": "Add Journal Entry"
+  "addJournalEntry": "Add Journal Entry",
+  "noJournalEntries": "No Journal Entries",
+  "loadJournalError": "Oh no! There was an error loading the journal :(",
+  "loadEntryError": "Oh no! There was an error loading the journal entry :(",
+  "journalEntry": "Journal Entry",
+  "settings": "Settings",
+  "theme": "Theme",
+  "lightTheme": "Light Theme",
+  "darkTheme": "Dark Theme",
+  "notFoundTitle": "Not Found",
+  "notFoundErrorMessage": "Sorry! We could not find that page :(",
+  "language": "Language",
+  "english": "English",
+  "german": "German"
 }

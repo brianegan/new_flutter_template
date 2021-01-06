@@ -2,5 +2,18 @@
   "appTitle": "Mein Tagebuch",
   "entries": "Einträge",
   "favorites": "Favoriten",
-  "addJournalEntry": "Journaleintrag hinzufügen"
+  "addJournalEntry": "Journaleintrag hinzufügen",
+  "noJournalEntries": "Keine Journaleinträge",
+  "loadJournalError": "Beim Laden des Journals ist ein Fehler aufgetreten :(",
+  "loadEntryError": "Beim Laden des Journaleintrags ist ein Fehler aufgetreten :(",
+  "journalEntry": "Tagebucheintrag",
+  "settings": "Einstellungen",
+  "theme": "Thema",
+  "lightTheme": "Lichtthema",
+  "darkTheme": "Dunkles Thema",
+  "notFoundTitle": "Nicht gefunden",
+  "notFoundErrorMessage": "Es tut uns leid! Wir konnten diese Seite nicht finden :(",
+  "language": "Sprache",
+  "english": "Englisch",
+  "german": "Deutsch"
 }

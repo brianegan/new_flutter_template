@@ -15,15 +15,15 @@ class AppRouteInformationParser
       return HomeConfiguration();
     } else if (uri.pathSegments.length == 1) {
       switch (uri.pathSegments.first) {
-        case "settings":
+        case 'settings':
           return UserSettingsConfiguration();
         default:
           return UnknownConfiguration();
       }
     } else if (uri.pathSegments.length == 2) {
       switch (uri.pathSegments.first) {
-        case "entry":
-          if (uri.pathSegments[1] == "add") {
+        case 'entry':
+          if (uri.pathSegments[1] == 'add') {
             return AddEntryConfiguration();
           }
 

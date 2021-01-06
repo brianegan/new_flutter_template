@@ -1,35 +1,38 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:journal_clean_architecture/domain/services/journal_service.dart';
-import 'package:journal_clean_architecture/domain/services/user_settings_service.dart';
 import 'package:journal_clean_architecture/domain/services/validation_service.dart';
 import 'package:journal_clean_architecture/ui/add_entry_view.dart';
 import 'package:journal_clean_architecture/ui/dashboard.dart';
+import 'package:journal_clean_architecture/ui/journal_controller.dart';
 import 'package:journal_clean_architecture/ui/journal_entry_view.dart';
 import 'package:journal_clean_architecture/ui/navigation/app_route_configuration.dart';
 import 'package:journal_clean_architecture/ui/unknown_route_view.dart';
+import 'package:journal_clean_architecture/ui/user_settings_controller.dart';
 import 'package:journal_clean_architecture/ui/user_settings_view.dart';
 
 class AppRouterDelegate extends RouterDelegate<AppRouteConfiguration>
     with
         ChangeNotifier,
         PopNavigatorRouterDelegateMixin<AppRouteConfiguration> {
-  final GlobalKey<NavigatorState> navigatorKey;
-  final JournalService journalService;
-  final UserSettingsService userSettingsService;
+  final GlobalKey<NavigatorState> _navigatorKey;
+  final JournalController journalController;
+  final UserSettingsController userSettingsController;
   final ValidationService validationService;
   AppRouteConfiguration _currentConfiguration;
 
   AppRouterDelegate({
     GlobalKey<NavigatorState> key,
-    @required this.journalService,
-    @required this.userSettingsService,
+    @required this.journalController,
+    @required this.userSettingsController,
     @required this.validationService,
-  }) : navigatorKey = key ?? GlobalKey<NavigatorState>();
+  }) : _navigatorKey = key ?? GlobalKey<NavigatorState>();
 
   @override
   AppRouteConfiguration get currentConfiguration =>
       _currentConfiguration ?? HomeConfiguration();
+
+  @override
+  GlobalKey<NavigatorState> get navigatorKey => _navigatorKey;
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +43,13 @@ class AppRouterDelegate extends RouterDelegate<AppRouteConfiguration>
             onEntryTap: handleJournalEntryTap,
             onAddEntryTap: handleAddEntryTap,
             onSettingsTap: handleSettingsTap,
-            journalService: journalService,
+            journalController: journalController,
           ),
         ),
         if (currentConfiguration is AddEntryConfiguration)
           MaterialPage(
             child: AddEntryView(
-              journalService: journalService,
+              journalController: journalController,
               validationService: validationService,
               onEntryAdded: _navigateHome,
             ),
@@ -55,13 +58,17 @@ class AppRouterDelegate extends RouterDelegate<AppRouteConfiguration>
           MaterialPage(
             child: JournalEntryView(
               id: (currentConfiguration as JournalEntryConfiguration).id,
-              journalService: journalService,
+              journalController: journalController,
             ),
           ),
         if (currentConfiguration is UnknownConfiguration)
           MaterialPage(child: UnknownRouteView()),
         if (currentConfiguration is UserSettingsConfiguration)
-          MaterialPage(child: UserSettingsView()),
+          MaterialPage(
+            child: UserSettingsView(
+              controller: userSettingsController,
+            ),
+          ),
       ],
       onPopPage: (route, result) {
         if (!route.didPop(result)) {
