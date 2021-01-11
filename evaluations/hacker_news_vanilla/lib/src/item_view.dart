@@ -39,39 +39,33 @@ class _ItemViewState extends State<ItemView> {
       body: FutureBuilder<Item>(
         future: _item,
         builder: (context, snapshot) {
-          return AnimatedSwitcher(
-            duration: Duration(milliseconds: 300),
-            child: _buildContent(snapshot),
-          );
+          if (snapshot.hasData) {
+            final item = snapshot.data;
+
+            return ListView(
+              padding: EdgeInsets.all(16),
+              children: [
+                Text(item.title, style: Theme.of(context).textTheme.headline3),
+                SizedBox(height: 16),
+                Text(
+                  AppLocalizations.of(context).commentCount(item.commentsCount),
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+                SizedBox(height: 8),
+                for (final comment in item.comments)
+                  ..._buildComments(comment, 0)
+              ],
+            );
+          } else if (snapshot.hasError) {
+            return ErrorView(
+              message: AppLocalizations.of(context).itemLoadingError,
+            );
+          }
+
+          return Center(child: CircularProgressIndicator());
         },
       ),
     );
-  }
-
-  Widget _buildContent(AsyncSnapshot<Item> snapshot) {
-    if (snapshot.hasData) {
-      final item = snapshot.data;
-
-      return ListView(
-        padding: EdgeInsets.all(16),
-        children: [
-          Text(item.title, style: Theme.of(context).textTheme.headline3),
-          SizedBox(height: 16),
-          Text(
-            AppLocalizations.of(context).commentCount(item.commentsCount),
-            style: Theme.of(context).textTheme.headline5,
-          ),
-          SizedBox(height: 8),
-          for (final comment in item.comments) ..._buildComments(comment, 0)
-        ],
-      );
-    } else if (snapshot.hasError) {
-      return ErrorView(
-        message: AppLocalizations.of(context).itemLoadingError,
-      );
-    }
-
-    return Center(child: CircularProgressIndicator());
   }
 
   List<Widget> _buildComments(Item comment, int indentationLevel) {
