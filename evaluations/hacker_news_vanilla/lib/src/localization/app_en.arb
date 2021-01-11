@@ -1,0 +1,15 @@
+{
+  "appTitle": "Hacker News Flutter",
+  "feedLoadingError": "Oh no! We could not load the news feed :(",
+  "itemLoadingError": "Oh no! We could not load the item :(",
+  "itemTitle": "News Item",
+  "deleted": "[deleted]",
+  "commentCount": "{numComments} comments",
+  "@commentCount": {
+    "placeholders": {
+      "numComments": {
+        "example": "123"
+      }
+    }
+  }
+}
