@@ -1,0 +1,23 @@
+{
+  "appTitle": "Pantone Colors App",
+  "logIn": "Log in",
+  "logOut": "Log out",
+  "register": "Register",
+  "colors": "Pantone Colors",
+  "loadingColorsError": "Could not load the colors",
+  "invalidEmail": "Please enter a valid email",
+  "invalidPassword": "Password must be 6 characters or longer",
+  "email": "Email",
+  "emailHint": "eve.holt@reqres.in",
+  "password": "Password",
+  "passwordHint": "123456",
+  "confirmPassWord": "Confirm Password",
+  "loginError": "Error: {error}",
+  "@loginError": {
+    "placeholders": {
+      "error": {
+        "example": "User not found"
+      }
+    }
+  }
+}
