@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tiny_journal_mvc/src/app.dart';
-import 'package:tiny_journal_mvc/src/journal/controllers/journal_controller.dart';
-import 'package:tiny_journal_mvc/src/journal/repositories/journal_repository.dart';
+import 'package:tiny_journal_mvc/src/journal/journal_controller.dart';
+import 'package:tiny_journal_mvc/src/journal/journal_repository.dart';
 
 void main() async {
   // Set up the Repositories, which are responsible for storing and retrieving

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:tiny_journal_mvc/src/journal/controllers/journal_controller.dart';
-import 'package:tiny_journal_mvc/src/journal/views/add_journal_entry_view.dart';
-import 'package:tiny_journal_mvc/src/journal/views/journal_entry_details_view.dart';
-import 'package:tiny_journal_mvc/src/journal/views/journal_entry_list_view.dart';
+import 'package:tiny_journal_mvc/src/journal/add_journal_entry_view.dart';
+import 'package:tiny_journal_mvc/src/journal/journal_controller.dart';
+import 'package:tiny_journal_mvc/src/journal/journal_entry_details_view.dart';
+import 'package:tiny_journal_mvc/src/journal/journal_entry_list_view.dart';
 
 class JournalApp extends StatelessWidget {
   final JournalController journalController;

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:tiny_journal_mvc/src/journal/models/journal_entry.dart';
-import 'package:tiny_journal_mvc/src/journal/repositories/journal_repository.dart';
+import 'package:tiny_journal_mvc/src/journal/journal_entry.dart';
+import 'package:tiny_journal_mvc/src/journal/journal_repository.dart';
 
 class JournalController with ChangeNotifier {
   JournalController(this.repository);

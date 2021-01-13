@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:tiny_journal_mvc/src/journal/controllers/journal_controller.dart';
-import 'package:tiny_journal_mvc/src/journal/views/error_view.dart';
+import 'package:tiny_journal_mvc/src/journal/error_view.dart';
+import 'package:tiny_journal_mvc/src/journal/journal_controller.dart';
 
 class JournalEntryDetailsView extends StatefulWidget {
   final String id;

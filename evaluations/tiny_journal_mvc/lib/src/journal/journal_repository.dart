@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tiny_journal_mvc/src/journal/models/journal_entry.dart';
+import 'package:tiny_journal_mvc/src/journal/journal_entry.dart';
 
 class JournalRepository {
   final SharedPreferences preferences;
