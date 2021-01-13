@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:list_detail_vanilla/src/user.dart';
-import 'package:list_detail_vanilla/src/user_details.dart';
+import 'package:list_detail_breadcrumbs/src/user.dart';
+import 'package:list_detail_breadcrumbs/src/user_details.dart';
 
 class MyListPage extends StatelessWidget {
   final List<User> users;

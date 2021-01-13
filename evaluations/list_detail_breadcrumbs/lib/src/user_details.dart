@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:list_detail_vanilla/src/user.dart';
+import 'package:list_detail_breadcrumbs/src/user.dart';
 
 class MyDetailPage extends StatelessWidget {
   final User user;
