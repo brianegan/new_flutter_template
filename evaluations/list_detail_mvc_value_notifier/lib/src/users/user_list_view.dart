@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:list_detail_mvc_value_notifier/src/users/user.dart';
-import 'package:list_detail_mvc_value_notifier/src/users/user_details.dart';
+import 'package:list_detail_mvc_value_notifier/src/users/user_details_view.dart';
 import 'package:list_detail_mvc_value_notifier/src/users/user_list_controller.dart';
 import 'package:list_detail_mvc_value_notifier/src/users/user_list_model.dart';
 
@@ -54,7 +54,7 @@ class _UserListViewState extends State<UserListView> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => UserDetailsPage(user: user),
+                        builder: (_) => UserDetailsView(user: user),
                       ),
                     );
                   },

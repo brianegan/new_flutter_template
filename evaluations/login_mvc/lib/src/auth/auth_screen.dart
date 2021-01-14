@@ -120,7 +120,7 @@ class _LoginForm extends StatelessWidget {
                     textEditingController: passwordController,
                   ),
                   SizedBox(height: 16),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: authController.loggingIn ? null : onSubmit,
                     child: Text(AppLocalizations.of(context).logIn),
                   ),
@@ -182,7 +182,7 @@ class _RegistrationForm extends StatelessWidget {
                     textEditingController: passwordController,
                   ),
                   SizedBox(height: 16),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: authController.loggingIn ? null : onSubmit,
                     child: Text(AppLocalizations.of(context).logIn),
                   ),

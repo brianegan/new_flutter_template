@@ -44,7 +44,7 @@ class _AddJournalEntryViewState extends State<AddJournalEntryView> {
               ),
             ),
             SizedBox(height: 16),
-            RaisedButton(
+            ElevatedButton(
               onPressed: _submitForm,
               child: Text(AppLocalizations.of(context).saveEntry),
             )

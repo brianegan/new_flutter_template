@@ -65,7 +65,7 @@ class _AddEntryViewState extends State<AddEntryView> {
                 },
               ),
               SizedBox(height: 16),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: _submitForm,
                 child: Text('Add Entry'),
               )

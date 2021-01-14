@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:list_detail_mvc_value_notifier/src/users/user_list.dart';
 import 'package:list_detail_mvc_value_notifier/src/users/user_list_controller.dart';
+import 'package:list_detail_mvc_value_notifier/src/users/user_list_view.dart';
 
 class UserListApp extends StatelessWidget {
   final UserController controller;
@@ -12,7 +12,7 @@ class UserListApp extends StatelessWidget {
     return MaterialApp(
       title: 'List/Detail Demo',
       theme: ThemeData.dark(),
-      home: UserListPage(controller: controller),
+      home: UserListView(controller: controller),
     );
   }
 }
