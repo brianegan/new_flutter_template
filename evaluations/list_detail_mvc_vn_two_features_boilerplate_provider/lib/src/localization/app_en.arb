@@ -1,0 +1,17 @@
+{
+  "appTitle": "List/Detail Demo",
+  "userDetails": "User Details",
+  "userList": "User List",
+  "userListLoadingError": "Oh no! Could not load the list of users",
+  "userName": "User {id}",
+  "settings": "Settings",
+  "lightTheme": "Light Theme",
+  "darkTheme": "Dark Theme",
+  "@userName": {
+    "placeholders": {
+      "id": {
+        "example": "123"
+      }
+    }
+  }
+}

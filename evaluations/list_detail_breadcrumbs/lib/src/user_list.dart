@@ -2,10 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:list_detail_breadcrumbs/src/user.dart';
 import 'package:list_detail_breadcrumbs/src/user_details.dart';
 
-class MyListPage extends StatelessWidget {
-  final List<User> users;
+class MyListPage extends StatefulWidget {
+  const MyListPage({Key key}) : super(key: key);
 
-  const MyListPage({Key key, @required this.users}) : super(key: key);
+  @override
+  _MyListPageState createState() => _MyListPageState();
+}
+
+class _MyListPageState extends State<MyListPage> {
+  List<User> _users;
+
+  @override
+  void initState() {
+    // "Load" the users
+    _users = List.generate(20, (id) => User(id));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +26,9 @@ class MyListPage extends StatelessWidget {
         title: Text('User List'),
       ),
       body: ListView.builder(
-        itemCount: users.length,
+        itemCount: _users.length,
         itemBuilder: (context, index) {
-          var user = users[index];
+          var user = _users[index];
 
           return ListTile(
             title: Text('User #${user.id}'),
