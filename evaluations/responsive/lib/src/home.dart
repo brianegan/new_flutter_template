@@ -11,10 +11,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-    final isDesktop = context.isDisplayDesktop;
+
     final body = SafeArea(
       child: Padding(
-        padding: isDesktop
+        padding: context.isDisplayDesktop
             ? const EdgeInsets.symmetric(horizontal: 72, vertical: 48)
             : const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: Column(
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
       ),
     );
 
-    if (isDesktop) {
+    if (context.isDisplayDesktop) {
       return Row(
         children: [
           ListDrawer(),
@@ -169,9 +169,7 @@ class _ListDrawerState extends State<ListDrawer> {
                 enabled: true,
                 selected: i == selectedItem,
                 leading: const Icon(Icons.favorite),
-                title: Text(
-                  AppLocalizations.of(context).drawerItem(i + 1),
-                ),
+                title: Text(AppLocalizations.of(context).drawerItem(i + 1)),
                 onTap: () {
                   setState(() {
                     selectedItem = i;
