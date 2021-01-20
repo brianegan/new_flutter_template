@@ -21,10 +21,9 @@ class Output {
   }
 }
 
-void main() {
-  final directory = Directory('evaluations');
+void main(List<String> args) {
   final samples = [
-    for (final entity in directory.listSync())
+    for (final entity in Directory(args.first).listSync())
       if (entity is Directory) Sample(entity.path)
   ];
   final outputs = samples.map<Output>((sample) {
@@ -40,7 +39,7 @@ void main() {
       .join('\n');
 
   print('''
-# Line Counts for Evaluations
+# Line Counts for ${args.first[0].toUpperCase() + args.first.substring(1)}
 
 Though not the only factor or even most important factor, can help us see which
 samples add a lot of code.
