@@ -1,0 +1,55 @@
+{
+  "appTitle": "Responsive Template",
+  "@appTitle": {
+    "description": "The title and name for the starter app."
+  },
+  "appDescription": "A responsive starter layout",
+  "@appDescription": {
+    "description": "The description for the starter app."
+  },
+  "genericButton": "BUTTON",
+  "@genericButton": {
+    "description": "Generic placeholder for button."
+  },
+  "tooltipAdd": "Add",
+  "@tooltipAdd": {
+    "description": "Tooltip on add icon."
+  },
+  "tooltipFavorite": "Favorite",
+  "@tooltipFavorite": {
+    "description": "Tooltip on favorite icon."
+  },
+  "tooltipShare": "Share",
+  "@tooltipShare": {
+    "description": "Tooltip on share icon."
+  },
+  "tooltipSearch": "Search",
+  "@tooltipSearch": {
+    "description": "Tooltip on search icon."
+  },
+  "genericTitle": "Title",
+  "@genericTitle": {
+    "description": "Generic placeholder for title in  bar."
+  },
+  "genericSubtitle": "Subtitle",
+  "@genericSubtitle": {
+    "description": "Generic placeholder for subtitle in drawer."
+  },
+  "genericHeadline": "Headline",
+  "@genericHeadline": {
+    "description": "Generic placeholder for headline in drawer."
+  },
+  "genericBody": "Body",
+  "@genericBody": {
+    "description": "Generic placeholder for body text in drawer."
+  },
+  "drawerItem": "Item {value}",
+  "@drawerItem": {
+    "description": "Generic placeholder drawer item.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  }
+}
