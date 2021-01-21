@@ -7,7 +7,7 @@ import 'package:list_detail_mvc_value_notifier/src/users/user_list_controller.da
 import 'package:list_detail_mvc_value_notifier/src/users/user_list_model.dart';
 
 class UserListView extends StatefulWidget {
-  final UserController controller;
+  final UserListController controller;
 
   const UserListView({Key key, @required this.controller}) : super(key: key);
 

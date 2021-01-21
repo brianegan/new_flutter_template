@@ -9,7 +9,7 @@ void main() async {
 
   // Setup Controllers which bind Data Storage (Repositories) to Flutter
   // Widgets.
-  final controller = UserController(repository);
+  final controller = UserListController(repository);
 
   runApp(UserListApp(controller: controller));
 }

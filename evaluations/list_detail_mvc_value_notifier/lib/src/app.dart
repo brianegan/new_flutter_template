@@ -3,7 +3,7 @@ import 'package:list_detail_mvc_value_notifier/src/users/user_list_controller.da
 import 'package:list_detail_mvc_value_notifier/src/users/user_list_view.dart';
 
 class UserListApp extends StatelessWidget {
-  final UserController controller;
+  final UserListController controller;
 
   const UserListApp({Key key, @required this.controller}) : super(key: key);
 

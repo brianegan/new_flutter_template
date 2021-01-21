@@ -16,13 +16,19 @@ class UserController with ChangeNotifier {
 
   bool get loading => _loading;
 
+  bool _error = false;
+
+  bool get error => _error;
+
   Future<void> loadUsers() async {
     _loading = true;
+    _error = false;
     notifyListeners();
 
     try {
       _users = await repository.users();
     } catch (e) {
+      _error = true;
       _users = [];
     } finally {
       _loading = false;

@@ -34,6 +34,8 @@ class _UserListPageState extends State<UserListPage> {
         builder: (context, _) {
           if (widget.controller.loading) {
             return Center(child: CircularProgressIndicator());
+          } else if (widget.controller.error) {
+            return Center(child: Icon(Icons.error));
           }
 
           return ListView.builder(

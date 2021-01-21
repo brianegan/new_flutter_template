@@ -4,8 +4,8 @@ import 'package:list_detail_mvc_value_notifier/src/users/user.dart';
 import 'package:list_detail_mvc_value_notifier/src/users/user_list_model.dart';
 import 'package:list_detail_mvc_value_notifier/src/users/user_repository.dart';
 
-class UserController extends ValueNotifier<UserListModel> {
-  UserController(this.repository) : super(UserListModel.initial());
+class UserListController extends ValueNotifier<UserListModel> {
+  UserListController(this.repository) : super(UserListModel.initial());
 
   final UserRepository repository;
 
