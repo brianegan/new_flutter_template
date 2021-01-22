@@ -10,8 +10,8 @@ samples add a lot of code.
 | list_detail_with_data_layer | 144 |
 | list_detail_mvc_riverpod | 152 |
 | list_detail_mvc_provider | 153 |
-| list_detail_mvc | 154 |
 | list_detail_mvc_mobx | 160 |
+| list_detail_mvc | 160 |
 | list_detail_mvc_cubit | 172 |
 | list_detail_mvc_value_notifier | 172 |
 | responsive | 207 |
