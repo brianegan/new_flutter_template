@@ -5,22 +5,22 @@ class UserListModel {
   final bool loading;
   final bool error;
 
-  UserListModel.initial()
-      : users = [],
+  const UserListModel.initial()
+      : users = const [],
         error = false,
         loading = false;
 
-  UserListModel.loading()
-      : users = [],
+  const UserListModel.loading()
+      : users = const [],
         error = false,
         loading = true;
 
-  UserListModel.populated(List<User> this.users)
+  const UserListModel.populated(List<User> this.users)
       : error = false,
         loading = false;
 
-  UserListModel.error()
-      : users = [],
+  const UserListModel.error()
+      : users = const [],
         error = true,
         loading = false;
 }
