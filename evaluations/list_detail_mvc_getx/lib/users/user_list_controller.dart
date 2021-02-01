@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:list_detail_mvc_getx/users/user.dart';
 import 'package:list_detail_mvc_getx/users/user_repository.dart';
 
-
 /// This is the controller (the C in MVC). It acts as an intermediary between
 /// your views (the UI) and your model (the data and its business logic).
 ///
@@ -10,7 +9,6 @@ import 'package:list_detail_mvc_getx/users/user_repository.dart';
 /// requesting new data, caching or notifying other parts of the app about
 /// changes.
 class UserController extends GetxController {
-
   final UserRepository _userRepository = Get.find<UserRepository>();
 
   final RxBool _loading = false.obs;
@@ -22,10 +20,6 @@ class UserController extends GetxController {
   List<User> get users => _users;
 
   bool get loading => _loading.value;
-
-  UserController() {
-    loadUsers();
-  }
 
   loadUsers() async {
     _loading.value = true;

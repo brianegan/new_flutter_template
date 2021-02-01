@@ -6,12 +6,8 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-            create: (context) => UserController(UserRepository())),
-        // Provide more controllers here.
-      ],
+    ChangeNotifierProvider(
+      create: (context) => UserController(UserRepository()),
       child: MyApp(),
     ),
   );

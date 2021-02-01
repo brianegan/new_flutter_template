@@ -42,7 +42,8 @@ void main(List<String> args) {
 # Line Counts for ${args.first[0].toUpperCase() + args.first.substring(1)}
 
 Though not the only factor or even most important factor, can help us see which
-samples add a lot of code.
+samples add a lot of code. Please note: This is not an exercise in code golf.
+The line counts are meant to be direct apples-to-apples comparisons.
   
 | *Sample* | *LOC (no comments)* |
 |--------|-------------------|

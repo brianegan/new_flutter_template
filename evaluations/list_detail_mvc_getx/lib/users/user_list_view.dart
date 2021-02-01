@@ -3,11 +3,22 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:list_detail_mvc_getx/constants.dart';
-import 'package:list_detail_mvc_getx/users/user_list_controller.dart';
 import 'package:list_detail_mvc_getx/users/user.dart';
+import 'package:list_detail_mvc_getx/users/user_list_controller.dart';
 
+class UserListView extends StatefulWidget {
+  @override
+  _UserListViewState createState() => _UserListViewState();
+}
 
-class UserListView extends StatelessWidget {
+class _UserListViewState extends State<UserListView> {
+  @override
+  void initState() {
+    Get.find<UserController>().loadUsers();
+
+    super.initState();
+  }
+
   @override
   Widget build(context) {
     return Scaffold(

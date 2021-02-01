@@ -13,9 +13,7 @@ class UserListView extends StatefulWidget {
 class _UserListViewState extends State<UserListView> {
   @override
   void initState() {
-    // Begin loading the users when the User List is first shown.
-    final userController = context.read<UserController>();
-    userController.loadUsers();
+    context.read<UserController>().loadUsers();
 
     super.initState();
   }
