@@ -21,6 +21,11 @@ class UserController extends GetxController {
 
   bool get loading => _loading.value;
 
+  onInit() {
+    super.onInit();
+    loadUsers();
+  }
+
   loadUsers() async {
     _loading.value = true;
 

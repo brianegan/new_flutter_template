@@ -6,25 +6,13 @@ import 'package:list_detail_mvc_getx/constants.dart';
 import 'package:list_detail_mvc_getx/users/user.dart';
 import 'package:list_detail_mvc_getx/users/user_list_controller.dart';
 
-class UserListView extends StatefulWidget {
-  @override
-  _UserListViewState createState() => _UserListViewState();
-}
-
-class _UserListViewState extends State<UserListView> {
-  @override
-  void initState() {
-    Get.find<UserController>().loadUsers();
-
-    super.initState();
-  }
+class UserListView extends GetView<UserController> {
 
   @override
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(title: Text('User List')),
-      body: GetX<UserController>(
-        builder: (controller) {
+      body: Obx(() {
           if (controller.loading) {
             return Center(child: CircularProgressIndicator());
           }
@@ -40,13 +28,13 @@ class _UserListViewState extends State<UserListView> {
               );
             },
           );
-        },
+        }
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
           final newUser = User(Random().nextInt(1000));
-          Get.find<UserController>().addUser(newUser);
+          controller.addUser(newUser);
         },
       ),
     );

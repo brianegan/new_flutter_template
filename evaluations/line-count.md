@@ -7,7 +7,7 @@ samples add a lot of code.
 |--------|-------------------|
 | list_detail_breadcrumbs | 77 |
 | list_detail_with_some_boilerplate | 86 |
-| list_detail_mvc_getx | 138 |
+| list_detail_mvc_getx | 132 |
 | list_detail_with_data_layer | 144 |
 | list_detail_mvc_provider | 147 |
 | list_detail_mvc_riverpod | 152 |
