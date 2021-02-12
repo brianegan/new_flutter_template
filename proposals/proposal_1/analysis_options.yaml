@@ -1,0 +1,13 @@
+# Static analysis allows you to find problems before executing a single line of code.
+# You may customize the Analysis Options by following this guide:
+# https://dart.dev/guides/language/analysis-options
+include: package:pedantic/analysis_options.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
+linter:
+  rules:
+    prefer_const_constructors: true
