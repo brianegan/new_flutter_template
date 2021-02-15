@@ -37,7 +37,7 @@ class _ItemListState extends State<ItemList> {
         if (widget.controller.loading) {
           return const Center(child: CircularProgressIndicator());
         } else if (widget.controller.error) {
-          return const Center(child: Text('Oh no! Could not load the users'));
+          return const Center(child: Text('Oh no! Could not load items'));
         }
 
         return LayoutBuilder(builder: (context, constraints) {
