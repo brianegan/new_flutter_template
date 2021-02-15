@@ -58,7 +58,7 @@ class ItemController with ChangeNotifier {
     try {
       _items = await itemService.items();
       loggingService.debug('Successfully loaded Items');
-    } catch (error) {
+    } catch (exception) {
       _error = true;
       loggingService.debug('Error loading Items');
     } finally {
