@@ -14,31 +14,19 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('MyWidget', () {
     testWidgets('should display a string of text', (WidgetTester tester) async {
-      // Build MyWidget and trigger a frame.
-      await tester.pumpWidget(MyWidget());
+      // Define a Widget
+      final myWidget = MaterialApp(
+        home: Scaffold(
+          body: const Text('Hello'),
+          floatingActionButton: FloatingActionButton(onPressed: () {}),
+        ),
+      );
 
-      // Verify MyWidget shows some text
+      // Build myWidget and trigger a frame.
+      await tester.pumpWidget(myWidget);
+
+      // Verify myWidget shows some text
       expect(find.byType(Text), findsOneWidget);
     });
-
-    testWidgets('should have a button', (WidgetTester tester) async {
-      // Build MyWidget and trigger a frame.
-      await tester.pumpWidget(MyWidget());
-
-      // Verify MyWidget shows a button
-      expect(find.byType(FloatingActionButton), findsOneWidget);
-    });
   });
-}
-
-class MyWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: const Text('Hello'),
-        floatingActionButton: FloatingActionButton(onPressed: () {}),
-      ),
-    );
-  }
 }

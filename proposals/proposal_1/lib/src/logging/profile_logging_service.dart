@@ -1,7 +1,9 @@
 import 'package:proposal_1/src/logging/logging_service.dart';
 
-/// Disable all logging in profile mode which may affect the performance of
-/// the application.
+/// By default, disable all logging in profile mode.
+///
+/// Printing to the console may hinder performance, so it is disabled by
+/// default.
 class ProfileLoggingService implements LoggingService {
   @override
   void debug(String message) {}

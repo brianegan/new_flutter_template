@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:proposal_1/src/settings/app_theme.dart';
 import 'package:proposal_1/src/settings/settings_controller.dart';
 
 class SettingsView extends StatelessWidget {
-  final SettingsController controller;
-
   const SettingsView({Key key, @required this.controller}) : super(key: key);
+
+  static const routeName = '/settings';
+  final SettingsController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +18,20 @@ class SettingsView extends StatelessWidget {
         child: AnimatedBuilder(
           animation: controller,
           builder: (context, _) {
-            return DropdownButton<AppTheme>(
-              value: controller.theme,
-              onChanged: (newTheme) => controller.updateTheme(newTheme),
+            return DropdownButton<ThemeMode>(
+              value: controller.themeMode,
+              onChanged: controller.updateThemeMode,
               items: [
                 const DropdownMenuItem(
-                  value: AppTheme.light,
+                  value: ThemeMode.system,
+                  child: Text('System Theme'),
+                ),
+                const DropdownMenuItem(
+                  value: ThemeMode.light,
                   child: Text('Light Theme'),
                 ),
                 const DropdownMenuItem(
-                  value: AppTheme.dark,
+                  value: ThemeMode.dark,
                   child: Text('Dark Theme'),
                 )
               ],

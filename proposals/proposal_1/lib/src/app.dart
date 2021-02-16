@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:proposal_1/src/items/item_controller.dart';
-import 'package:proposal_1/src/items/item_details.dart';
-import 'package:proposal_1/src/items/item_list.dart';
-import 'package:proposal_1/src/settings/app_theme.dart';
+import 'package:proposal_1/src/dummy_feature/dummy_item.dart';
+import 'package:proposal_1/src/dummy_feature/dummy_item_details_view.dart';
+import 'package:proposal_1/src/dummy_feature/dummy_item_list_view.dart';
 import 'package:proposal_1/src/settings/settings_controller.dart';
 import 'package:proposal_1/src/settings/settings_view.dart';
 
 class MyApp extends StatelessWidget {
   final SettingsController settingsController;
-  final ItemController itemController;
 
   const MyApp({
     Key key,
-    @required this.itemController,
     @required this.settingsController,
   }) : super(key: key);
 
@@ -27,26 +24,26 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           localizationsDelegates: [AppLocalizations.delegate],
           onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
-          theme: settingsController.theme == AppTheme.light
-              ? ThemeData()
-              : ThemeData.dark(),
+          theme: ThemeData(),
+          darkTheme: ThemeData.dark(),
+          themeMode: settingsController.themeMode,
+          debugShowCheckedModeBanner: false,
           initialRoute: '/',
           onGenerateRoute: (routeSettings) {
             return MaterialPageRoute<void>(
               settings: routeSettings,
               builder: (context) {
-                if (routeSettings.name == '/settings') {
-                  return SettingsView(controller: settingsController);
-                } else if (routeSettings.name.contains('item')) {
-                  return ItemDetailsPage(
-                    id: int.parse(routeSettings.name.split('/').last),
-                    controller: itemController,
-                  );
+                switch (routeSettings.name) {
+                  case SettingsView.routeName:
+                    return SettingsView(controller: settingsController);
+                  case DummyItemDetailsView.routeName:
+                    return DummyItemDetailsView();
+                  case DummyItemListView.routeName:
+                  default:
+                    return DummyItemListView(
+                      items: const [DummyItem(1), DummyItem(2), DummyItem(3)],
+                    );
                 }
-
-                return ItemList(
-                  controller: itemController,
-                );
               },
             );
           },

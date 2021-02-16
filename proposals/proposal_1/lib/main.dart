@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:proposal_1/src/app.dart';
-import 'package:proposal_1/src/items/item_controller.dart';
-import 'package:proposal_1/src/items/item_service.dart';
 import 'package:proposal_1/src/logging/debug_logging_service.dart';
 import 'package:proposal_1/src/logging/profile_logging_service.dart';
 import 'package:proposal_1/src/logging/release_logging_service.dart';
@@ -13,8 +11,6 @@ import 'package:proposal_1/src/settings/settings_service.dart';
 
 void main() {
   // Set up cross-cutting Services, such as Logging, Analytics, or Feature Flags
-
-  // First, set up the correct LoggingService depending on the environment
   final loggingService = kProfileMode
       ? ProfileLoggingService()
       : kReleaseMode
@@ -31,14 +27,10 @@ void main() {
     // Setup the Settings Service
     final settingsController = SettingsController(SettingsService());
 
-    // Load the user's settings before displaying the App.
+    // Load the user's preferred theme while the splash screen is displayed.
+    // This prevents the app from "flashing" from one theme to another.
     await settingsController.loadSettings();
 
-    runApp(MyApp(
-      itemController: ItemController(ItemService(), loggingService),
-      settingsController: settingsController,
-    ));
-  }, (error, stackTrace) {
-    loggingService.error(error, stackTrace);
-  });
+    runApp(MyApp(settingsController: settingsController));
+  }, loggingService.error);
 }

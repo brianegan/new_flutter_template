@@ -1,8 +1,5 @@
 /// A Service that records application messages or exceptions.
 ///
-/// This class should be used throughout the application in place of print or
-/// debugPrint statements.
-///
 /// There are three implementations of this abstract class:
 ///   - Release version: Sends records to a logging or error capturing service,
 ///     such as Firebase Crashlytics or Sentry. Modify this file to change where
