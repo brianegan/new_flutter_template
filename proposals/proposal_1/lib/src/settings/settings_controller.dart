@@ -17,11 +17,11 @@ class SettingsController with ChangeNotifier {
   // also persisting the changes with the SettingsService.
   ThemeMode _themeMode;
 
-  // Allow Widgets to read the user's preferred ThemeMode
+  // Allow Widgets to read the user's preferred ThemeMode.
   ThemeMode get themeMode => _themeMode;
 
-  /// Load the Settings from the SettingsService. It may load from a local
-  /// database or the internet. The controller only knows it can load the
+  /// Load the user's settings from the SettingsService. It may load from a
+  /// local database or the internet. The controller only knows it can load the
   /// settings from the service.
   Future<void> loadSettings() async {
     _themeMode = await _settingsService.themeMode();

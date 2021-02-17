@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Displays detailed information about a DummyItem
+/// Displays detailed information about a DummyItem.
 class DummyItemDetailsView extends StatelessWidget {
   static const routeName = '/dummy_item';
 
