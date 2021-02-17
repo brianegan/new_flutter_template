@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:proposal_1/src/dummy_feature/dummy_item.dart';
 import 'package:proposal_1/src/dummy_feature/dummy_item_details_view.dart';
 import 'package:proposal_1/src/dummy_feature/dummy_item_list_view.dart';
 import 'package:proposal_1/src/settings/settings_controller.dart';
 import 'package:proposal_1/src/settings/settings_view.dart';
 
+/// The Widget that configures your application.
 class MyApp extends StatelessWidget {
   final SettingsController settingsController;
 
@@ -16,19 +16,36 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Listen to the SettingsController for changes to the App Theme. Rebuild
-    // the App whenever the theme changes
+    // Glue the SettingsController to the MaterialApp.
+    //
+    // The AnimatedBuilder Widget listens to the SettingsController for changes.
+    // Whenever the user updates their settings, the MaterialApp is rebuilt.
     return AnimatedBuilder(
       animation: settingsController,
       builder: (context, _) {
         return MaterialApp(
+          // Provide the generated AppLocalizations to the MaterialApp. This
+          // allows descendant Widgets to display the correct translations
+          // depending on the user's locale.
           localizationsDelegates: [AppLocalizations.delegate],
+
+          // Use AppLocalizations to configure a the correct application title
+          // depending on the user's locale.
+          //
+          // The appTitle is defined in .arb files found in the localization
+          // directory.
           onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
+
+          // Define a light and dark color theme. Then, read the user's
+          // preferred ThemeMode (light, dark or system default) from the
+          // SettingsController to display the correct theme.
           theme: ThemeData(),
           darkTheme: ThemeData.dark(),
           themeMode: settingsController.themeMode,
           debugShowCheckedModeBanner: false,
-          initialRoute: '/',
+
+          // Define a function to handle named routes in order to support
+          // Flutter web url navigation and deep linking.
           onGenerateRoute: (routeSettings) {
             return MaterialPageRoute<void>(
               settings: routeSettings,
@@ -37,12 +54,10 @@ class MyApp extends StatelessWidget {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
                   case DummyItemDetailsView.routeName:
-                    return DummyItemDetailsView();
+                    return const DummyItemDetailsView();
                   case DummyItemListView.routeName:
                   default:
-                    return DummyItemListView(
-                      items: const [DummyItem(1), DummyItem(2), DummyItem(3)],
-                    );
+                    return const DummyItemListView();
                 }
               },
             );

@@ -21,16 +21,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  sentry:
-  firebase_crashlytics:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -42,18 +36,17 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  generate: true
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
+  # The following line enables the generation of localized Strings from arb files
+  generate: true
+
   assets:
+    # Add assets from the images directory to the application.
     - assets/images/
-    # To add files located in subdirectories, create an entry per directory.
-    # - assets/images/subdirectory/
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages

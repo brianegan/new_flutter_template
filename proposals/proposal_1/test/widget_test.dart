@@ -11,6 +11,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+// A widget test tests a single widget.
 void main() {
   group('MyWidget', () {
     testWidgets('should display a string of text', (WidgetTester tester) async {
