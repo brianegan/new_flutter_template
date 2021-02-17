@@ -41,7 +41,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # The following line enables the generation of localized Strings from arb files
+  # The following line enables the generation of localized Strings from arb files.
   generate: true
 
   assets:
