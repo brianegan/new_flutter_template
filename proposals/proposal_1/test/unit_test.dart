@@ -10,7 +10,9 @@
 
 import 'package:flutter_test/flutter_test.dart';
 
-// A unit test tests a single function, method, or class.
+// A unit test tests a single function, method, or class. To learn more about
+// writing unit tests, visit
+// https://flutter.dev/docs/cookbook/testing/unit/introduction
 void main() {
   group('Plus Operator', () {
     test('should add two numbers together', () {

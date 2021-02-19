@@ -11,7 +11,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-// A widget test tests a single widget.
+// A widget test tests a single widget. To learn more about writing widget
+// tests, visit https://flutter.dev/docs/cookbook/testing/unit/introduction
 void main() {
   group('MyWidget', () {
     testWidgets('should display a string of text', (WidgetTester tester) async {

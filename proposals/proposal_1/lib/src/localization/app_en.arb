@@ -1,3 +1,6 @@
 {
-  "appTitle": "Flutter Demo"
+  "appTitle": "Flutter Demo",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
 }
