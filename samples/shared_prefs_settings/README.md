@@ -2,7 +2,7 @@
 
 Demonstrates how to use the
 [`shared_preferences`](https://pub.dev/packages/shared_preferences) package to
-persist user settings. This sample builds on the 
+persist user settings. This sample builds on the List/Detail Flutter template.
 
 ## Recipe
 
