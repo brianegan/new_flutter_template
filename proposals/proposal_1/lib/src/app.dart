@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:proposal_1/src/dummy_feature/dummy_item_details_view.dart';
-import 'package:proposal_1/src/dummy_feature/dummy_item_list_view.dart';
-import 'package:proposal_1/src/settings/settings_controller.dart';
-import 'package:proposal_1/src/settings/settings_view.dart';
+
+import 'dummy_feature/dummy_item_details_view.dart';
+import 'dummy_feature/dummy_item_list_view.dart';
+import 'settings/settings_controller.dart';
+import 'settings/settings_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
     // Whenever the user updates their settings, the MaterialApp is rebuilt.
     return AnimatedBuilder(
       animation: settingsController,
-      builder: (context, _) {
+      builder: (BuildContext context, Widget child) {
         return MaterialApp(
+          restorationScopeId: 'app',
           // Provide the generated AppLocalizations to the MaterialApp. This
           // allows descendant Widgets to display the correct translations
           // depending on the user's locale.
@@ -42,7 +44,6 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(),
           darkTheme: ThemeData.dark(),
           themeMode: settingsController.themeMode,
-          debugShowCheckedModeBanner: false,
 
           // Define a function to handle named routes in order to support
           // Flutter web url navigation and deep linking.

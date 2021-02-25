@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:proposal_1/src/dummy_feature/dummy_item.dart';
-import 'package:proposal_1/src/dummy_feature/dummy_item_details_view.dart';
-import 'package:proposal_1/src/settings/settings_view.dart';
+
+import '../settings/settings_view.dart';
+import 'dummy_item.dart';
+import 'dummy_item_details_view.dart';
 
 /// Displays a list of DummyItems.
 class DummyItemListView extends StatelessWidget {
@@ -23,7 +24,7 @@ class DummyItemListView extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              Navigator.pushNamed(context, SettingsView.routeName);
+              Navigator.restorablePushNamed(context, SettingsView.routeName);
             },
           ),
         ],
@@ -47,7 +48,10 @@ class DummyItemListView extends StatelessWidget {
               foregroundImage: AssetImage('assets/images/flutter_logo.png'),
             ),
             onTap: () {
-              Navigator.pushNamed(context, DummyItemDetailsView.routeName);
+              Navigator.restorablePushNamed(
+                context,
+                DummyItemDetailsView.routeName,
+              );
             },
           );
         },
