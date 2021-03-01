@@ -6,12 +6,12 @@ import 'dummy_item_details_view.dart';
 
 /// Displays a list of DummyItems.
 class DummyItemListView extends StatelessWidget {
-  static const routeName = '/';
-
   const DummyItemListView({
     Key key,
     this.items = const [DummyItem(1), DummyItem(2), DummyItem(3)],
   }) : super(key: key);
+
+  static const routeName = '/';
 
   final List<DummyItem> items;
 
@@ -24,6 +24,8 @@ class DummyItemListView extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
+              // Navigate to the settings page. If the user leaves and returns
+              // to the app, the navigation stack is restored.
               Navigator.restorablePushNamed(context, SettingsView.routeName);
             },
           ),
@@ -48,6 +50,8 @@ class DummyItemListView extends StatelessWidget {
               foregroundImage: AssetImage('assets/images/flutter_logo.png'),
             ),
             onTap: () {
+              // Navigate to the details page. If the user leaves and returns to
+              // the app, the navigation stack is restored.
               Navigator.restorablePushNamed(
                 context,
                 DummyItemDetailsView.routeName,

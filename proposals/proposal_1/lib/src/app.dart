@@ -8,12 +8,12 @@ import 'settings/settings_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
-  final SettingsController settingsController;
-
   const MyApp({
     Key key,
     @required this.settingsController,
   }) : super(key: key);
+
+  final SettingsController settingsController;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,11 @@ class MyApp extends StatelessWidget {
       animation: settingsController,
       builder: (BuildContext context, Widget child) {
         return MaterialApp(
+          // Providing a restorationScopeId allows the Navigator built by the
+          // MaterialApp to restore the navigation stack when a user leaves and
+          // returns to the app.
           restorationScopeId: 'app',
+
           // Provide the generated AppLocalizations to the MaterialApp. This
           // allows descendant Widgets to display the correct translations
           // depending on the user's locale.
@@ -47,7 +51,7 @@ class MyApp extends StatelessWidget {
 
           // Define a function to handle named routes in order to support
           // Flutter web url navigation and deep linking.
-          onGenerateRoute: (routeSettings) {
+          onGenerateRoute: (RouteSettings routeSettings) {
             return MaterialPageRoute<void>(
               settings: routeSettings,
               builder: (context) {
