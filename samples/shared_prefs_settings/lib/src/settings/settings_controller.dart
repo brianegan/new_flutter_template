@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_prefs_settings/src/settings/settings_service.dart';
+
+import 'settings_service.dart';
 
 /// A class that many Widgets can interact with to read user settings, update
 /// user settings, or listen to user settings changes.
@@ -37,7 +38,8 @@ class SettingsController with ChangeNotifier {
     // Important! Inform listeners a change has occurred.
     notifyListeners();
 
-    // Persist the changes using the Service.
+    // Persist the changes to a local database or the internet using the
+    // SettingService.
     await _settingsService.updateThemeMode(newTheme);
   }
 }

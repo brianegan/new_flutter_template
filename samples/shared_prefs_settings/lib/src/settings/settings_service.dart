@@ -30,7 +30,7 @@ class SettingsService {
     // known as deserialization.
     switch (themeModeAsString) {
       case 'ThemeMode.dark':
-        return ThemeMode.light;
+        return ThemeMode.dark;
       case 'ThemeMode.light':
         return ThemeMode.light;
       default:
