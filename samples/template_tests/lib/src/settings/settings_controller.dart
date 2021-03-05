@@ -32,15 +32,14 @@ class SettingsController with ChangeNotifier {
   }
 
   /// Update and persist the ThemeMode based on the user's selection.
-  Future<void> updateThemeMode(ThemeMode newThemeMode) async {
-    // Store the new theme mode
-    _themeMode = newThemeMode;
+  Future<void> updateThemeMode(ThemeMode newTheme) async {
+    _themeMode = newTheme;
 
     // Important! Inform listeners a change has occurred.
     notifyListeners();
 
     // Persist the changes to a local database or the internet using the
     // SettingService.
-    await _settingsService.updateThemeMode(newThemeMode);
+    await _settingsService.updateThemeMode(newTheme);
   }
 }

@@ -25,8 +25,7 @@ class DummyItemListView extends StatelessWidget {
             icon: const Icon(Icons.settings),
             onPressed: () {
               // Navigate to the settings page. If the user leaves and returns
-              // to the app after it has been killed while running in the
-              // background, the navigation stack is restored.
+              // to the app, the navigation stack is restored.
               Navigator.restorablePushNamed(context, SettingsView.routeName);
             },
           ),
@@ -40,10 +39,6 @@ class DummyItemListView extends StatelessWidget {
       // building all Widgets up front, the ListView.builder constructor lazily
       // builds Widgets as they’re scrolled into view.
       body: ListView.builder(
-        // Providing a restorationId allows the ListView to restore the
-        // scroll position when a user leaves and returns to the app after it
-        // has been killed while running in the background.
-        restorationId: 'dummyItemListView',
         itemCount: items.length,
         itemBuilder: (context, index) {
           final item = items[index];
@@ -56,8 +51,7 @@ class DummyItemListView extends StatelessWidget {
             ),
             onTap: () {
               // Navigate to the details page. If the user leaves and returns to
-              // the app after it has been killed while running in the
-              // background, the navigation stack is restored.
+              // the app, the navigation stack is restored.
               Navigator.restorablePushNamed(
                 context,
                 DummyItemDetailsView.routeName,

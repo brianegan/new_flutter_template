@@ -27,8 +27,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           // Providing a restorationScopeId allows the Navigator built by the
           // MaterialApp to restore the navigation stack when a user leaves and
-          // returns to the app after it has been killed while running in the
-          // background.
+          // returns to the app.
           restorationScopeId: 'app',
 
           // Provide the generated AppLocalizations to the MaterialApp. This
@@ -41,8 +40,7 @@ class MyApp extends StatelessWidget {
           //
           // The appTitle is defined in .arb files found in the localization
           // directory.
-          onGenerateTitle: (BuildContext context) =>
-              AppLocalizations.of(context).appTitle,
+          onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
 
           // Define a light and dark color theme. Then, read the user's
           // preferred ThemeMode (light, dark, or system default) from the
@@ -56,7 +54,7 @@ class MyApp extends StatelessWidget {
           onGenerateRoute: (RouteSettings routeSettings) {
             return MaterialPageRoute<void>(
               settings: routeSettings,
-              builder: (BuildContext context) {
+              builder: (context) {
                 switch (routeSettings.name) {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);

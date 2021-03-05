@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:proposal_1/src/app.dart';
-import 'package:proposal_1/src/dummy_feature/dummy_item_details_view.dart';
-import 'package:proposal_1/src/settings/settings_controller.dart';
-import 'package:proposal_1/src/settings/settings_service.dart';
-import 'package:proposal_1/src/settings/settings_view.dart';
+import 'package:template_tests/src/app.dart';
+import 'package:template_tests/src/dummy_feature/dummy_item_details_view.dart';
+import 'package:template_tests/src/settings/settings_controller.dart';
+import 'package:template_tests/src/settings/settings_service.dart';
+import 'package:template_tests/src/settings/settings_view.dart';
 
 void main() {
-  group('ListDetailApp', () {
+  // A suite of tests that verifies the functionality of a List/Detail App
+  group('MyApp', () {
     testWidgets('displays a list of items', (WidgetTester tester) async {
       final service = SettingsService();
       final controller = SettingsController(service);
@@ -16,6 +17,7 @@ void main() {
       await tester.pumpWidget(MyApp(settingsController: controller));
 
       expect(find.byType(ListTile), findsNWidgets(3));
+      await expectLater(find.byType(MyApp), matchesGoldenFile('list.png'));
     });
 
     testWidgets('navigates to an item page', (WidgetTester tester) async {
@@ -28,6 +30,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(DummyItemDetailsView), findsOneWidget);
+      await expectLater(find.byType(MyApp), matchesGoldenFile('details.png'));
     });
 
     testWidgets('changes the app theme', (WidgetTester tester) async {
@@ -43,7 +46,7 @@ void main() {
       // Verify defaults in place
       expect(controller.themeMode, ThemeMode.system);
       expect(find.byType(SettingsView), findsOneWidget);
-      expect(findApp(ThemeMode.system), findsOneWidget);
+      await expectLater(find.byType(MyApp), matchesGoldenFile('system.png'));
 
       // Change to Dark Theme
       await tester.tap(find.text('System Theme'));
@@ -53,7 +56,7 @@ void main() {
 
       // Verify Dark Theme rendered
       expect(controller.themeMode, ThemeMode.dark);
-      expect(findApp(ThemeMode.dark), findsOneWidget);
+      await expectLater(find.byType(MyApp), matchesGoldenFile('dark.png'));
 
       // Change to Light Theme
       await tester.tap(find.text('Dark Theme'));
@@ -63,11 +66,8 @@ void main() {
 
       // Verify light theme enabled
       expect(controller.themeMode, ThemeMode.light);
-      expect(findApp(ThemeMode.light), findsOneWidget);
+      expect(find.byWidgetPredicate((widget) => widget is MaterialApp && widget.themeMode == ThemeMode.light), findsOneWidget);
+      await expectLater(find.byType(MyApp), matchesGoldenFile('light.png'));
     });
   });
 }
-
-Finder findApp(ThemeMode themeMode) => find.byWidgetPredicate(
-    (widget) => widget is MaterialApp && widget.themeMode == themeMode,
-);
